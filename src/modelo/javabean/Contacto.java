@@ -21,6 +21,10 @@ public class Contacto {
         this.empresa = empresa;
     }
 
+    /**
+     * Este método devuelve la clave única del objeto Contacto
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
     }
@@ -41,6 +45,9 @@ public class Contacto {
         return empresa;
     }
 
+    /**
+     * Este método establece o cambia el valor de la clave única del objeto Contacto
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
