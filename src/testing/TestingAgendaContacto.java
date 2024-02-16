@@ -24,7 +24,7 @@ public class TestingAgendaContacto {
 
     public static void main(String[] args) {
         //Testing Contacto.java
-
+        /*
         System.out.println(contacto1.getEmail());
         contacto1.setEmail("abelardo@yahoo.es");
         System.out.println(contacto1.getEmail());
@@ -40,5 +40,30 @@ public class TestingAgendaContacto {
         System.out.println(agc1.buscarUno("Juan"));
         System.out.println(agc1.buscarEmail("674591217"));
         System.out.println(agc1.buscarTelefono("juanjo@gmail.com"));
+
+         */
+
+        //buscarPorTresPrimeros();
+        //cambiarDatos();
+        contactosPorEmpresa();
+    }
+
+    public static void buscarPorTresPrimeros(){
+        String nombre = "Jua";
+        for (Contacto con: agc1.buscarContactosPorTresPrimeros(nombre)){
+            System.out.println(con);
+        }
+    }
+    public static void cambiarDatos(){
+        Contacto contacto = new Contacto("Juanjo","Pedrosa","613198217","juanjo@gmail.com","Amazon");
+        agc1.cambiarDatos(contacto);
+
+        System.out.println(contacto);
+    }
+    public static void contactosPorEmpresa() {
+        String empresa = "Deloite";
+        for (Contacto con: agc1.contactosPorEmpresa(empresa)){
+            System.out.println(con);
+        }
     }
 }
