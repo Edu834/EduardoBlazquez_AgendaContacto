@@ -8,6 +8,10 @@ public class AgendaContacto implements ContactoDao{
     private String nombreAgenda;
     private ArrayList<Contacto> contactos;
 
+    /**
+     *Constructor AgendaContacto
+     * @param nombre
+     */
     public AgendaContacto(String nombre){
         nombreAgenda=nombre;
         contactos = new ArrayList<>();
@@ -22,6 +26,9 @@ public class AgendaContacto implements ContactoDao{
         nombreAgenda = nombre;
     }
 
+    /**
+     *Añade contactos predeterminados a todas las agendas
+     */
     private void cargardatos(){
         contactos.add(new Contacto("Juan","García","607511207","juanillo@gmail.com","IBM"));
         contactos.add(new Contacto("María","Serrano","674591217","mariserr@gmail.com","Deloite"));
@@ -30,6 +37,11 @@ public class AgendaContacto implements ContactoDao{
 
     }
 
+    /**
+     * Método para dar de alta aun contacto.
+     * @param contacto
+     * @return boolean
+     */
     @Override
     public boolean altaContacto(Contacto contacto) {
         if(!contactos.contains(contacto)){
@@ -40,11 +52,20 @@ public class AgendaContacto implements ContactoDao{
         }
     }
 
+    /**
+     * Muestra todos los contactos de la agenda
+     * @return String
+     */
     public  String mostrarTodo(){
         String strContactos=contactos.toString();
         return nombreAgenda+strContactos;
     }
 
+    /**
+     * Método para eliminar un contacto
+     * @param contacto
+     * @return boolean
+     */
     @Override
     public boolean eliminarContacto(Contacto contacto) {
         if(contactos.contains(contacto)){
@@ -55,6 +76,11 @@ public class AgendaContacto implements ContactoDao{
         }
     }
 
+    /**
+     * Método para buscar un contacto filtrado por nombre
+     * @param nombre
+     * @return Contacto
+     */
     @Override
     public Contacto buscarUno(String nombre) {
         Contacto contacto = new Contacto();
@@ -67,6 +93,11 @@ public class AgendaContacto implements ContactoDao{
         }
     }
 
+    /**
+     * Método para buscar un contacto filtrado por teléfono
+     * @param telefono
+     * @return Contacto
+     */
     @Override
     public Contacto buscarTelefono(String telefono) {
         for (int i = 0; i < contactos.size(); i++) {
@@ -77,6 +108,11 @@ public class AgendaContacto implements ContactoDao{
         return null;
     }
 
+    /**
+     * Método para buscar un contacto filtrado por email
+     * @param email
+     * @return Contacto
+     */
     @Override
     public Contacto buscarEmail(String email) {
         for(int i = 0; i < contactos.size(); i++) {
@@ -87,6 +123,11 @@ public class AgendaContacto implements ContactoDao{
         return null;
     }
 
+    /**
+     * Método para buscar un contacto por los tres primeros caracteres del nombre
+     * @param nombre
+     * @return ArrayList<Contacto>
+     */
     @Override
     public ArrayList<Contacto> buscarContactosPorTresPrimeros(String nombre) {
         ArrayList<Contacto> contactosTresPrimeros= new ArrayList<Contacto>();
@@ -102,6 +143,11 @@ public class AgendaContacto implements ContactoDao{
         return contactosTresPrimeros;
     }
 
+    /**
+     * Método para cambiar los datos de un contacto ya existente
+     * @param contacto
+     * @return boolean
+     */
     @Override
     public boolean cambiarDatos(Contacto contacto) {
         for (int i = 0; i < contactos.size(); i++) {
@@ -116,6 +162,11 @@ public class AgendaContacto implements ContactoDao{
         return false;
     }
 
+    /**
+     * Método para buscar los contactos con la misma empresa
+     * @param empresa
+     * @return ArrayList<Contacto>
+     */
     @Override
     public ArrayList<Contacto> contactosPorEmpresa(String empresa) {
         ArrayList<Contacto> contactosEmpresa= new ArrayList<Contacto>();
